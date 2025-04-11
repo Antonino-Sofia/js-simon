@@ -9,3 +9,14 @@ Dopo 30 secondi i numeri scompaiono e appaiono invece 5 input in cui l'utente de
 Dopo che sono stati inseriti i 5 numeri, il software dice quanti e quali dei numeri da indovinare sono stati individuati.
 NOTA: non è importante l'ordine con cui l'utente inserisce i numeri, basta che ne indovini il più possibile.
 */
+
+//Valore minimo
+const min = 1;
+//Valore massimo
+const max = 50;
+//numeri da generare
+const totNumbers = 5;
+//valore contatore iniziale
+let time = 5;
+
+//HTML
