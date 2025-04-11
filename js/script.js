@@ -107,3 +107,39 @@ function confirm(event) {
     return;
   }
 }
+// Controllo elementi corretti
+
+const correctAnswers = [];
+
+for (let i = 0; i < userGuesses.length; i++) {
+  const currentGuess = userGuesses[i];
+
+  if (numbers.includes(currentGuess)) correctAnswers.push(currentGuess);
+}
+
+//Gestione della stampa del messaggio
+if (correctAnswers.length > 0) {
+  messageElement.classList.remove("text-danger");
+  messageElement.classList.add("text-success");
+
+  messageElement.innerText = `Hai indovinato ${correctAnswers.length} numeri; ${correctAnswers}`;
+} else {
+  messageElement.classList.remove("text-success");
+  messageElement.classList.add("text-danger");
+  messageElement.innerText = `Non hai indovinato`;
+}
+
+//Restituisce un array contenente tot numeri
+function generateRandomNumbers(min, max, tot) {
+  const result = [];
+
+  //5 numeri random unici
+  while (result.length < tot) {
+    const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+    if (!result.includes(randomNumber)) {
+      result.push(randomNumber);
+    }
+  }
+
+  return result;
+}
