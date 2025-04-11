@@ -49,3 +49,61 @@ for (let i = 0; 1 < totNumbers; i++) {
 }
 
 numbersListElement.innerHTML = items;
+
+// Contatore intervallo
+
+countdownElement.innerText = time;
+
+const countDownId = setInterval(function () {
+  countdownElement.innerText = --time;
+
+  if (time === 0) {
+    clearInterval(countDownId);
+
+    //Numeri Nascosti
+    numbersListElement.classlist.add("d-none");
+
+    answerFormElement.classlist.remove("d-none");
+
+    //Countdown Nascosto
+    countdownElement.classList.add("d-none");
+
+    // Cambiare Text Messaggio
+    instructionsElement.innerText = "inserisci i numeri";
+  }
+}, 1000);
+
+// Inserimento Numeri
+
+answerFormElement.addEventListener("submit", confirm);
+
+function confirm(event) {
+  event.preventDefault();
+  console.log("invio del form");
+
+  const userGuesses = [];
+
+  for (let i = 0; i < inputFieldsElement.length; i++) {
+    const currentElement = inputFieldsElement[i];
+
+    const currentValue = parseInt(currentElement.value);
+    if (
+      currentValue >= min &&
+      currentValue <= max &&
+      !isNaN(currentValue) &&
+      !userGuesses.includes(currentValue)
+    ) {
+      userGuesses.push(currentValue);
+    }
+  }
+  // Esito Validazione
+  if (userGuesses.length !== totNumbers) {
+    console.log("non puoi giocare");
+
+    messageElement.classList.remove("text-success");
+    messageElement.classList.add("text-danger");
+
+    messageElement.innerText = "Hai inserito risposte non valide";
+    return;
+  }
+}
