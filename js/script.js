@@ -20,3 +20,10 @@ const totNumbers = 5;
 let time = 5;
 
 //HTML
+const numbersListElement = document.getElementById("numers-list");
+console.log(numbersListElement);
+
+const countdownElement = document.getElementById("answers-form");
+console.log(countdownElement);
+
+const instructionsElement = document.getElementById("instructions");
