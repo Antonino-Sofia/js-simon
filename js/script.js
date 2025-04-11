@@ -27,3 +27,25 @@ const countdownElement = document.getElementById("answers-form");
 console.log(countdownElement);
 
 const instructionsElement = document.getElementById("instructions");
+console.log(instructionsElement);
+
+const inputFieldsElement = document.querySelectorAll(
+  "#answers-form .form-control"
+);
+console.log(inputFieldsElement);
+
+const messageElement = document.getElementById("message");
+
+//NUMERI
+const numbers = generateRandomNumbers(min, max, totNumbers);
+console.log(numbers);
+
+let items = "";
+
+for (let i = 0; 1 < totNumbers; i++) {
+  const currentNumber = numbers[i];
+
+  items += `<li>${currentNumber}</li>`;
+}
+
+numbersListElement.innerHTML = items;
